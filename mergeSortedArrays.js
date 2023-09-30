@@ -18,24 +18,27 @@ function merge(nums1, nums2) {
     let left = 0;
     let right = 0;
 
-    // create a while loop that tracks pointers
-    while (left < nums1.length || right < nums2.length) {
-
-        // compare the values of the index of the pointer in each array
-        // if values are === push value from nums1 and move up pointer from nums1 up
-        // if left nums1 pointer is > nums 2 pointer push num2 value to our return array and move up nums1 pointer
-        // if left nums2 pointer is > nums 1 pointer push num1 value to our return array and move up nums2 pointer
-        if (nums1[left] > nums2[right]) {
-            mergedArray.push(nums2[right]);
-            left++;
-        } else if (nums2[right] > nums1[left]) {
+    while (left < nums1.length && right < nums2.length) {
+        if (nums1[left] < nums2[right]) {
             mergedArray.push(nums1[left]);
-            right++;
+            left++
         } else {
-            mergedArray.push(nums1[left]);
-            left++;
+            mergedArray.push(nums2[right]);
+            right++
         }
     }
+
+    while (left < nums1.length) {
+        mergedArray.push(nums1[left]);
+        left++;
+    }
+
+    while (right < nums2.length) {
+        mergedArray.push(nums2[right]);
+        right++;
+    }
+
+
     // return our mergedArray
     return mergedArray;
 };
