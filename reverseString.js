@@ -3,6 +3,9 @@
 // 'nauJ si eman ym iH'
 
 function reverseString(str) {
+    // check to see if input is a string or isn't just one letter
+    if (!str || str.length < 2 || typeof str !== 'string') return "Hmm that's not a string";
+
     // make a variable that converts our string to an array
     // create 2 pointers. 1 at the beggining and one at the end
     let strArr = [...str];
