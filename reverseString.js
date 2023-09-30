@@ -4,16 +4,24 @@
 
 function reverseString(str) {
     // make a variable that converts our string to an array
-
     // create 2 pointers. 1 at the beggining and one at the end
-
-        // create a while loop that stops when beggining pointer > end pointer
-
+    let strArr = [...str];
+    let left = 0;
+    let right = strArr.length - 1;
+    
+    // create a while loop that stops when beggining pointer > end pointer
+    while (left < right) {
         // swap values at the indexes of our pointers
+        [strArr[left], strArr[right]] = [strArr[right], strArr[left]];
 
         // move beggining pointer up and end pointer down
-
+        left++;
+        right--;
+    }
+    
     // convert our array to a string and return our string
+    return strArr.join("");
+    
 }
 
-console.log(reverseString('Hi my name is Juan'));
+console.log(reverseString('Hi my name is Juan')); // 'nauJ si eman ym iH'
