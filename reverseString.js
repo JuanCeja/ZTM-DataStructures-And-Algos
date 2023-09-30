@@ -2,6 +2,8 @@
 // 'Hi my name is Juan' should be: 
 // 'nauJ si eman ym iH'
 
+// solution 1
+
 function reverseString(str) {
     // check to see if input is a string or isn't just one letter
     if (!str || str.length < 2 || typeof str !== 'string') return "Hmm that's not a string";
@@ -27,5 +29,12 @@ function reverseString(str) {
     
 }
 
+// solution 2
+
+function reverseString2(str) {
+    return str.split('').reverse().join('');
+}
+
 console.log(reverseString('Hi my name is Juan')); // 'nauJ si eman ym iH'
-console.log(reverseString('This is a test')); // 'tset a si sihT'
+console.log(reverseString2('Hi my name is Juan')); // 'nauJ si eman ym iH'
+// console.log(reverseString3('Hi my name is Juan')); // 'nauJ si eman ym iH'
