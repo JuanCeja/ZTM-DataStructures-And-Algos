@@ -25,3 +25,4 @@ function reverseString(str) {
 }
 
 console.log(reverseString('Hi my name is Juan')); // 'nauJ si eman ym iH'
+console.log(reverseString('This is a test')); // 'tset a si sihT'
