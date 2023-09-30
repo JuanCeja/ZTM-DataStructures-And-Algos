@@ -35,6 +35,11 @@ function reverseString2(str) {
     return str.split('').reverse().join('');
 }
 
+// solution 3 (ES6)
+const reverseString3 = (str) => [...str].reverse().join('');
+
+
+
 console.log(reverseString('Hi my name is Juan')); // 'nauJ si eman ym iH'
 console.log(reverseString2('Hi my name is Juan')); // 'nauJ si eman ym iH'
-// console.log(reverseString3('Hi my name is Juan')); // 'nauJ si eman ym iH'
+console.log(reverseString3('Hi my name is Juan')); // 'nauJ si eman ym iH'
