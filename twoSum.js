@@ -39,7 +39,7 @@ function twoSum1(nums, target) {
 }
 
 // ==== solution with O(n) time complexity ====
-function twoSum2(arr, target) {
+const twoSum2 = (arr, target) => {
     // create an empty object to store numbers and their indices
     let map = {};
 
