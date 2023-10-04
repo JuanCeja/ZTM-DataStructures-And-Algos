@@ -18,16 +18,24 @@
 // Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 const maximumSubarray = (arr) => {
+    // base case if arr has only single value
     if(arr.length === 1) return arr[0];
 
-    let maxSum = arr[0];
-    let currentSum = arr[0];
+    // initialize variables to keep track of the maximum sum and the current sum
+    let maxSum = arr[0]; // assume the first element is the maximum sum initially
+    let currentSum = arr[0]; // start with the first element as the current sum
 
+    // iterate through the array starting from the second element
     for(let i = 1; i < arr.length; i++) {
+        // choose the larger value between the current element and the current element + current sum
+        // this line determines wheter to start a new subarray or extend the previous one
         currentSum = Math.max(arr[i], arr[i] + currentSum);
+
+        // update the maximum sum if the current sum is greater
         maxSum = Math.max(currentSum, maxSum);
     }
 
+    // return the maximum sum found
     return maxSum;
 }
 
