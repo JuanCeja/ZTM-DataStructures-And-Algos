@@ -19,40 +19,50 @@
 
 
 // ==== solution with O(n^2) time complexity ====
-// function twoSum(nums, target) {
-//     // Iterate through the array
-//     for (let i = 0; i < nums.length; i++) {
+function twoSum1(nums, target) {
+    // Iterate through the array
+    for (let i = 0; i < nums.length; i++) {
 
-//         // For each element, iterate through the rest of the array
-//         for (let j = i + 1; j < nums.length; j++) {
+        // For each element, iterate through the rest of the array
+        for (let j = i + 1; j < nums.length; j++) {
 
-//             // Check if the current pair of elements adds up to the target
-//             if (nums[i] + nums[j] === target) {
+            // Check if the current pair of elements adds up to the target
+            if (nums[i] + nums[j] === target) {
 
-//                 // Return the indices of the two numbers
-//                 return [i, j];
-//             }
-//         }
-//     }
-//     // If no solution is found, return an empty array or handle the error as needed
-//     return [];
-// }
+                // Return the indices of the two numbers
+                return [i, j];
+            }
+        }
+    }
+    // If no solution is found, return an empty array or handle the error as needed
+    return [];
+}
 
 // ==== solution with O(n) time complexity ====
-    function twoSum (arr, target) {
-        // create a map to store the pair for target 
-        // create a target pair number
+function twoSum2(arr, target) {
+    // create an empty object to store numbers and their indices
+    let map = {};
 
-        // use a loop to iterate the array
+    // iterate through the array
+    for (let i = 0; i < arr.length; i++) {
+        // calculate the difference between the target and the current number
+        const complement = target - arr[i];
 
-            // IF the value is not in the map store it with its indecy as the value
+        // check if the complement is in the object
+        if (map.hasOwnProperty(complement)) {
+            return [map[complement], i];
+        }
 
-            // check to see if the map has the pair value to make the target
-                // if so return the indices
-
-        // return empty array if pair does not exist
+        map[arr[i]] = i;
     }
+    // return empty array if pair does not exist
+    return [];
+}
 
-console.log(twoSum([2, 7, 11, 15], 9)); // output: [0, 1]
-console.log(twoSum([3, 2, 4], 6)); // output: [1, 2]
-console.log(twoSum([3, 3], 6)); // output: [0, 1]
+console.log(twoSum1([2, 7, 11, 15], 9)); // output: [0, 1]
+console.log(twoSum1([3, 2, 4], 6)); // output: [1, 2]
+console.log(twoSum1([3, 3], 6)); // output: [0, 1]
+console.log('---')
+console.log(twoSum2([2, 7, 11, 15], 9)); // output: [0, 1]
+console.log(twoSum2([3, 2, 4], 6)); // output: [1, 2]
+console.log(twoSum2([3, 3], 6)); // output: [0, 1]
