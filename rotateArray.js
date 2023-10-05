@@ -18,7 +18,19 @@
 // rotate 2 steps to the right: [3,99,-1,-100]
 
 const rotate = (nums, k) => {
+    // iterate the array for k times
+    for (let i = 0; i < k; i++) {
 
+        // pop the item and store it in a variable
+        let item = nums.pop();
+
+        // shift the item back onto the array
+        nums.unshift(item);
+
+    }
+
+    // return the array
+    return nums;
 };
 
 console.log(rotate([1,2,3,4,5,6,7], 3)); // [5,6,7,1,2,3,4]
