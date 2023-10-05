@@ -15,17 +15,25 @@
 // Output: true
 
 const containsDuplicate = (nums) => {
-    // create set to keep track if value already exists
+    // Create an empty Set to store unique values
+    const uniqueSet = new Set();
 
-    // use loop to iterate the nums array
+    // Iterate through the array
+    for (const num of nums) {
+        
+        // If the current element is already in the Set, return true
+        if (uniqueSet.has(num)) {
+            return true;
+        }
 
-        // check to see if value exists in our set
-        // IF value exists return true
-        // ELSE add the value to our set
+        // Otherwise, add the current element to the Set
+        uniqueSet.add(num);
+    }
 
-    // return false
+    // If the loop completes without finding any duplicates, return false
+    return false;
 };
 
-console.log(containsDuplicate([1,2,3,1])); // output: true
-console.log(containsDuplicate([1,2,3,4])); // output: false
-console.log(containsDuplicate([1,1,1,3,3,4,3,2,4,2])); // output: true
+console.log(containsDuplicate([1, 2, 3, 1])); // output: true
+console.log(containsDuplicate([1, 2, 3, 4])); // output: false
+console.log(containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])); // output: true
