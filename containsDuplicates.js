@@ -15,7 +15,15 @@
 // Output: true
 
 const containsDuplicate = (nums) => {
-    
+    // create set to keep track if value already exists
+
+    // use loop to iterate the nums array
+
+        // check to see if value exists in our set
+        // IF value exists return true
+        // ELSE add the value to our set
+
+    // return false
 };
 
 console.log(containsDuplicate([1,2,3,1])); // output: true
