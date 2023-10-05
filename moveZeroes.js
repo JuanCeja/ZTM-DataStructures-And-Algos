@@ -13,7 +13,17 @@
 // Output: [0]
 
 const moveZeroes = (nums) => {
+    // create var to store index to make a swap to
 
+    // iterate the nums array
+
+        // IF the nums array value != 0 swap it with the index then increase index
+
+    // use second loop to iterate the array starting from the index
+
+        // replace every value with a 0
+
+    // return our nums array
 };
 
 console.log(moveZeroes([0,1,0,3,12])) // output: [1,3,12,0,0]
