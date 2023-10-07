@@ -23,12 +23,16 @@ const reverseArr = (start, end, nums) => {
 
 const rotate = (nums, k) => {
     // first we reverse the complete array
+    nums.reverse();
 
     // we create a helper function that accepts the array, starting, and ending
+    reverseArr(nums[0], nums[k-1], nums);
 
     // then we revere the left side of the array up to the k-th element
-    
+    reverseArr(nums[k], nums[nums.length -1], nums);
+
     // then we reverse the right side of the array after the k-th element
+    return nums;
 };
 
 console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3)); // [5,6,7,1,2,3,4]
