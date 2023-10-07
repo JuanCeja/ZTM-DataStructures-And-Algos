@@ -17,21 +17,44 @@
 // rotate 1 steps to the right: [99,-1,-100,3]
 // rotate 2 steps to the right: [3,99,-1,-100]
 
-const rotate = (nums, k) => {
-    // iterate the array for k times
-    for (let i = 0; i < k; i++) {
+// === Helper Function ===
+const reverseArr = (start, end, nums) => {
+    // Create pointers for swapping elements.
+    let left = start;
+    let right = end;
 
-        // pop the item and store it in a variable
-        let item = nums.pop();
-
-        // shift the item back onto the array
-        nums.unshift(item);
-
+    // Swap elements between 'left' and 'right' pointers.
+    while (left < right) {
+        [nums[left], nums[right]] = [nums[right], nums[left]]; // Swap values.
+        left++; // Move the left pointer to the right.
+        right--; // Move the right pointer to the left.
     }
 
-    // return the array
+    // Return the modified array.
     return nums;
 };
 
-console.log(rotate([1,2,3,4,5,6,7], 3)); // [5,6,7,1,2,3,4]
-console.log(rotate([-1,-100,3,99], 2)); // [3,99,-1,-100]
+const rotate = (nums, k) => {
+    // Ensure 'k' is within the range of array length.
+    k = k % nums.length;
+
+    // Base cases: If the array has 0 or 1 elements, or 'k' is greater than the array length, return the original array.
+    if (nums.length < 2) return nums;
+    if (k > nums.length) return nums;
+
+    // Step 1: Reverse the entire array.
+    nums.reverse();
+
+    // Step 2: Reverse the left side of the array (0 to 'k-1' elements).
+    reverseArr(0, k - 1, nums);
+
+    // Step 3: Reverse the right side of the array (from 'k' to the end).
+    reverseArr(k, nums.length - 1, nums);
+
+    // Return the rotated array.
+    return nums;
+};
+
+
+console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3)); // [5,6,7,1,2,3,4]
+console.log(rotate([-1, -100, 3, 99], 2)); // [3,99,-1,-100]
