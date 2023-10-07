@@ -17,9 +17,19 @@
 // rotate 1 steps to the right: [99,-1,-100,3]
 // rotate 2 steps to the right: [3,99,-1,-100]
 
-const rotate = (nums, k) => {
+const reverseArr = (start, end, nums) => {
 
 };
 
-console.log(rotate([1,2,3,4,5,6,7], 3)); // [5,6,7,1,2,3,4]
-console.log(rotate([-1,-100,3,99], 2)); // [3,99,-1,-100]
+const rotate = (nums, k) => {
+    // first we reverse the complete array
+
+    // we create a helper function that accepts the array, starting, and ending
+
+    // then we revere the left side of the array up to the k-th element
+    
+    // then we reverse the right side of the array after the k-th element
+};
+
+console.log(rotate([1, 2, 3, 4, 5, 6, 7], 3)); // [5,6,7,1,2,3,4]
+console.log(rotate([-1, -100, 3, 99], 2)); // [3,99,-1,-100]
