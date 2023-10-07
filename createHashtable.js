@@ -1,9 +1,9 @@
 class Hashtable {
-    constructor (size) {
+    constructor(size) {
         this.data = new Array(size);
     }
 
-    _hash (key) {
+    _hash(key) {
         let hash = 0;
         for (let i = 0; i < key.length; i++) {
             hash = (hash + key.charCodeAt(i) * i) % this.data.length;
@@ -12,15 +12,16 @@ class Hashtable {
         return hash;
     }
 
-    set(key, data) {
-
+    set(key, info) {
+        let location = this._hash(key);
+        this.data[location] = info;
     }
 
-    get (key) {
-        
+    get(key) {
+        return this.data[this._hash(key)];
     }
 }
 
-const myHashTable = newHashtable(50);
+const myHashTable = new Hashtable(50);
 myHashTable.set('grapes', 10000);
-myHashTable.get('grapes');
+console.log(myHashTable.get('grapes')); // output: 10000;
