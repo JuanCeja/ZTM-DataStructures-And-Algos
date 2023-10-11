@@ -12,16 +12,20 @@ class Hashtable {
         return hash;
     }
 
-    set(key, info) {
-        let location = this._hash(key);
-        this.data[location] = info;
+    set(key, value) {
+        let address = this._hash(key);
+        if (!this.data[address]) {
+            this.data[address] = [];
+        }
+        this.data[address] = [[key, value]];
     }
 
     get(key) {
-        return this.data[this._hash(key)];
+        
     }
+
 }
 
 const myHashTable = new Hashtable(50);
-myHashTable.set('grapes', 10000);
-console.log(myHashTable.get('grapes')); // output: 10000;
+console.log(myHashTable.set('grapes', 10000));
+console.log(myHashTable); // output: 10000;
