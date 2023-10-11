@@ -42,7 +42,20 @@ class LinkedList {
     }
 
     insert(index, value) {
+        let newNode = new Node(value);
 
+        if (index === 0) {
+            this.prepend(value);
+            return this;
+        }
+
+        let current = head;
+        while (index !== 0) {
+            current = current.next;
+            index--;
+        }
+
+        newNode
     }
 }
 
