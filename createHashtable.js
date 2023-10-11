@@ -23,9 +23,9 @@ class Hashtable {
     get(key) {
         let address = this._hash(key);
         const currentBucket = this.data[address];
-        if(currentBucket) {
-            for(let i = 0; i < currentBucket.length; i++) {
-                if(currentBucket[i][0] === key){
+        if (currentBucket) {
+            for (let i = 0; i < currentBucket.length; i++) {
+                if (currentBucket[i][0] === key) {
                     return currentBucket[i][0];
                 }
             }
@@ -33,11 +33,23 @@ class Hashtable {
         return undefined;
     }
 
+    keys() {
+        const keysArray = [];
+        for (let i = 0; i < this.data.length; i++) {
+            if(this.data[i]) {
+                keysArray.push(this.data[i][0][0]);
+            }
+        }
+        return keysArray;
+    } 
+
 }
 
 const myHashTable = new Hashtable(50);
 myHashTable.set('grapes', 10000);
 myHashTable.set('apples', 54);
+myHashTable.set('oranges', 2);
 
-console.log(myHashTable.get('apples'));
-console.log(myHashTable);
+// console.log(myHashTable.get('apples'));
+console.log(myHashTable.keys());
+// console.log(myHashTable);
