@@ -81,13 +81,25 @@ class LinkedList {
     }
 
     pop() {
-        // base cases
-        // make variables for the currentNode and the node behind it newTail
-        // iterate to the end of the linked list
-        // make newTail the tail
-        // point newTails pointer to null
-        // decrease the length
-        // set head and tail to null if the length reaches 0
+        if(!this.head) return undefined;
+
+        let current = this.head;
+        let newTail = current;
+        while(current.next) {
+            newTail = current;
+            current = current.next;
+        }
+        
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+
+        if(this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+
+        return this;
     }
 }
 
@@ -96,5 +108,5 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.append(1);
 myLinkedList.insert(2, 99);
-console.log(myLinkedList.remove(3));
+myLinkedList.pop();
 console.log(myLinkedList.printList());
