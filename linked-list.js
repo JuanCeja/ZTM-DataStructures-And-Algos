@@ -23,7 +23,7 @@ class LinkedList {
         return this;
     }
 
-    prepend (value) {
+    prepend(value) {
         const newNode = new Node(value);
         newNode.next = this.head;
         this.head = newNode;
@@ -34,7 +34,7 @@ class LinkedList {
     printList() {
         const array = [];
         let current = this.head;
-        while(current !== null) {
+        while (current !== null) {
             array.push(current.value);
             current = current.next;
         }
@@ -44,24 +44,82 @@ class LinkedList {
     insert(index, value) {
         let newNode = new Node(value);
 
-        if (index === 0) {
-            this.prepend(value);
-            return this;
-        }
+        if (index >= this.length) return this.append(value);
+        if (index <= 0) return this.prepend(value);
 
-        let current = head;
-        while (index !== 0) {
+
+        let current = this.head;
+        let currentIndex = 0;
+
+        while (currentIndex < index - 1) {
             current = current.next;
-            index--;
+            currentIndex++;
         }
 
-        newNode
+        newNode.next = current.next;
+        current.next = newNode;
+        this.length++;
+        return this;
+    }
+
+    remove(index) {
+        let current = this.head;
+        let removedNode;
+        let currentIndex = 0;
+
+        while(currentIndex < index - 1 && current.next) {
+            current = current.next;
+            currentIndex++;
+        }
+
+        removedNode = current.next;
+        current.next = current.next.next;
+        removedNode.next = null;
+        this.length--;
+
+        return removedNode;
+    }
+
+    pop() {
+        if(!this.head) return undefined;
+
+        let current = this.head;
+        let newTail = current;
+        while(current.next) {
+            newTail = current;
+            current = current.next;
+        }
+
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+
+        if(this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+
+        return this;
+    }
+
+    shift() {
+        if(!this.head) return undefined;
+
+        let prevHead = this.head;
+        this.head = prevHead.next;
+        this.length--;
+        if(this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return this;
     }
 }
 
 let myLinkedList = new LinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
-myLinkedList.prepend(1);
+myLinkedList.append(1);
 myLinkedList.insert(2, 99);
+myLinkedList.shift();
 console.log(myLinkedList.printList());
