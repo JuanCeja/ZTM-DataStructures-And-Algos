@@ -63,27 +63,31 @@ class LinkedList {
     }
 
     remove(index) {
-        // make 2 variables for current and removedNode
         let current = this.head;
         let removedNode;
         let currentIndex = 0;
 
-        // iterate to the node previous of the node we want to delete
         while(currentIndex < index - 1 && current.next) {
             current = current.next;
             currentIndex++;
         }
 
-        // 1 reference our removedNode variable to the node we wish to delete
-        // 2 move our current nodes pointer to the next.next node
-        // 3 point the pointer from the node we wish to delete to null
-        // 4 decrease our length
         removedNode = current.next;
         current.next = current.next.next;
         removedNode.next = null;
         this.length--;
 
         return removedNode;
+    }
+
+    pop() {
+        // base cases
+        // make variables for the currentNode and the node behind it newTail
+        // iterate to the end of the linked list
+        // make newTail the tail
+        // point newTails pointer to null
+        // decrease the length
+        // set head and tail to null if the length reaches 0
     }
 }
 
