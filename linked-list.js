@@ -103,14 +103,16 @@ class LinkedList {
     }
 
     shift() {
-        // if there is only 1 item we set tail and head to null
-        // create newHead variable
-        // create current variable that points to head
-        // newHeads pointer points to current heads next
-        // set currents next to point at null
-        // set head to newHead
-        // decrease length
-        // if length is 1 set head and tail to node
+        if(!this.head) return undefined;
+
+        let prevHead = this.head;
+        this.head = prevHead.next;
+        this.length--;
+        if(this.length === 0) {
+            this.head = null;
+            this.tail = null;
+        }
+        return this;
     }
 }
 
@@ -119,5 +121,5 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.append(1);
 myLinkedList.insert(2, 99);
-myLinkedList.pop();
+myLinkedList.shift();
 console.log(myLinkedList.printList());
