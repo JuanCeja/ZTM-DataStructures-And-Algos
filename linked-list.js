@@ -59,6 +59,15 @@ class LinkedList {
         this.length++;
         return this;
     }
+
+    remove(index) {
+        // create our base cases
+        // make 2 variables for current and previous
+        // iterate to the node previous of the node we want to delete
+        // reference our prev variable to the node we wish to delete
+        // move our current nodes pointer to the next.next node
+        // point the pointer from the node we wish to delete to null
+    }
 }
 
 let myLinkedList = new LinkedList(10);
