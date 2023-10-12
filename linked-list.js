@@ -89,7 +89,7 @@ class LinkedList {
             newTail = current;
             current = current.next;
         }
-        
+
         this.tail = newTail;
         this.tail.next = null;
         this.length--;
@@ -100,6 +100,17 @@ class LinkedList {
         }
 
         return this;
+    }
+
+    shift() {
+        // if there is only 1 item we set tail and head to null
+        // create newHead variable
+        // create current variable that points to head
+        // newHeads pointer points to current heads next
+        // set currents next to point at null
+        // set head to newHead
+        // decrease length
+        // if length is 1 set head and tail to node
     }
 }
 
