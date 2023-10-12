@@ -49,9 +49,11 @@ class LinkedList {
 
 
         let current = this.head;
-        while ((index - 1) !== 0) {
+        let currentIndex = 0;
+
+        while (currentIndex < index - 1) {
             current = current.next;
-            index--;
+            currentIndex++;
         }
 
         newNode.next = current.next;
@@ -61,12 +63,27 @@ class LinkedList {
     }
 
     remove(index) {
-        // create our base cases
-        // make 2 variables for current and previous
+        // make 2 variables for current and removedNode
+        let current = this.head;
+        let removedNode;
+        let currentIndex = 0;
+
         // iterate to the node previous of the node we want to delete
-        // reference our prev variable to the node we wish to delete
-        // move our current nodes pointer to the next.next node
-        // point the pointer from the node we wish to delete to null
+        while(currentIndex < index - 1 && current.next) {
+            current = current.next;
+            currentIndex++;
+        }
+
+        // 1 reference our removedNode variable to the node we wish to delete
+        // 2 move our current nodes pointer to the next.next node
+        // 3 point the pointer from the node we wish to delete to null
+        // 4 decrease our length
+        removedNode = current.next;
+        current.next = current.next.next;
+        removedNode.next = null;
+        this.length--;
+
+        return removedNode;
     }
 }
 
@@ -75,4 +92,5 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.append(1);
 myLinkedList.insert(2, 99);
+console.log(myLinkedList.remove(3));
 console.log(myLinkedList.printList());
