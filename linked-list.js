@@ -74,23 +74,7 @@ class DoublyLinkedList {
         if (index === 0) return this.shift();
         if (index === this.length - 1) return this.pop();
 
-        let current = this.head;
-        let removedNode;
-        let currentIndex = 0;
-
-        while (currentIndex < index - 1 && current.next) {
-            current = current.next;
-            currentIndex++;
-        }
-
-        removedNode = current.next;
-        current.next = current.next.next;
-        current.next.next.prev = current.prev.prev;
-        removedNode.next = null;
-        removedNode.prev = null;
-        this.length--;
-
-        return removedNode;
+        
     }
 
     pop() {
