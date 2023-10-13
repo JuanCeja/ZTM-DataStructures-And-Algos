@@ -78,8 +78,8 @@ class DoublyLinkedList {
         let prevNode, nextNode;
 
         prevNode = removedNode.prev;
-        prevNode.next = removedNode.next;
         nextNode = removedNode.next;
+        prevNode.next = removedNode.next;
         nextNode.prev = removedNode.prev;
 
         removedNode.next = null;
@@ -90,25 +90,19 @@ class DoublyLinkedList {
     }
 
     pop() {
-        if (!this.head) return undefined;
-
-        let current = this.head;
-        let newTail = current;
-        while (current.next) {
-            newTail = current;
-            current = current.next;
-        }
-
-        this.tail = newTail;
-        this.tail.next = null;
-        this.length--;
-
-        if (this.length === 0) {
+        if (this.length === 0) return undefined;
+        let poppedNode = this.tail;
+        if (this.length === 1) {
             this.head = null;
             this.tail = null;
+        } else {
+            this.tail = poppedNode.prev;
+            this.tail.next = null;
+            poppedNode.prev = null;
         }
 
-        return this;
+        this.length--;
+        return poppedNode;
     }
 
     shift() {
@@ -150,5 +144,6 @@ let myLinkedList = new DoublyLinkedList(10);
 myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.append(1);
-myLinkedList.insert(2, 99);
+myLinkedList.append(99);
+// myLinkedList.pop();
 console.log(myLinkedList.printList());
