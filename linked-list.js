@@ -117,12 +117,21 @@ class LinkedList {
 
     reverse() {
         // initialize 3 pointers to keep track of nodes
+        let current = this.head;
+        let prev, next = null;
 
-        // traverse the list and reverse the links
+        // traverse the list and reverse the links while current is not null
+        while (current) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
 
         // update the head to the last node (the original tail)
-
         // return the new head of the reversed list
+        this.head = this.tail;
+        return this;
     }
 }
 
@@ -131,5 +140,6 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.append(1);
 myLinkedList.insert(2, 99);
-myLinkedList.shift();
+console.log(myLinkedList.printList());
+myLinkedList.reverse();
 console.log(myLinkedList.printList());
