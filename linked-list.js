@@ -114,6 +114,16 @@ class LinkedList {
         }
         return this;
     }
+
+    reverse() {
+        // initialize 3 pointers to keep track of nodes
+
+        // traverse the list and reverse the links
+
+        // update the head to the last node (the original tail)
+
+        // return the new head of the reversed list
+    }
 }
 
 let myLinkedList = new LinkedList(10);
