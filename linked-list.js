@@ -116,21 +116,22 @@ class LinkedList {
     }
 
     reverse() {
-        // initialize 3 pointers to keep track of nodes
-        let current = this.head;
-        let prev, next = null;
+        if(this.length === 1) return this;
+        if(this.length < 1) return undefined;
 
-        // traverse the list and reverse the links while current is not null
-        while (current) {
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+        let first = this.head;
+        let second = first.next;
+        let temp = second.next;
+        this.head = this.tail;
+
+        while(temp) {
+            second.next = first;
+            first = second;
+            second = temp;
+            temp = second.next;
         }
 
-        // update the head to the last node (the original tail)
-        // return the new head of the reversed list
-        this.head = this.tail;
+        this.head = second;
         return this;
     }
 }
