@@ -15,7 +15,7 @@ class Stack {
     }
 
     peek() {
-
+        return this.top ? this.top : null;
     }
 
     push(value) {
