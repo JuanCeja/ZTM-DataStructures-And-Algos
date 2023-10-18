@@ -11,22 +11,51 @@ class Stack {
     constructor() {
         this.top = null;
         this.bottom = null;
-        this.size = 0;
+        this.length = 0;
     }
 
     peek() {
-
+        return this.top ? this.top : null;
     }
 
     push(value) {
+        const newNode = new Node(value);
 
+        if (!this.length) {
+            this.top = newNode;
+            this.bottom = newNode;
+        } else {
+            newNode.next = this.top;
+            this.top = newNode;
+        }
+
+        this.length++;
+        return this;
     }
 
     pop() {
-
+        if (this.length < 1) return null;
+        if (this.length === 1) {
+            this.top = null;
+            this.bottom = null;
+            this.length--;
+            return this;
+        }
+        const removedNode = this.top;
+        this.top = this.top.next;
+        this.length--;
+        return removedNode;
     }
 
     isEmpty() {
-
+        return !this.top ? true : false;
     }
 }
+
+let myStack = new Stack();
+myStack.push('Google');
+myStack.push('Udemy');
+myStack.push('Discord');
+myStack.pop();
+console.log(myStack.peek());
+console.log(myStack);
