@@ -19,7 +19,7 @@ class Stack {
     }
 
     push(value) {
-        let newNode = new Node(value);
+        const newNode = new Node(value);
 
         if (!this.length) {
             this.top = newNode;
@@ -38,16 +38,17 @@ class Stack {
         if (this.length === 1) {
             this.top = null;
             this.bottom = null;
+            this.length--;
+            return this;
         }
-        let removedNode = this.top;
+        const removedNode = this.top;
         this.top = this.top.next;
-        this.top.next = null;
         this.length--;
         return removedNode;
     }
 
     isEmpty() {
-        return this.length > 0 ? true : false;
+        return !this.top ? true : false;
     }
 }
 
@@ -55,4 +56,6 @@ let myStack = new Stack();
 myStack.push('Google');
 myStack.push('Udemy');
 myStack.push('Discord');
+myStack.pop();
+console.log(myStack.peek());
 console.log(myStack);
