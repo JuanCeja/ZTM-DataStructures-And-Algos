@@ -21,24 +21,33 @@ class Stack {
     push(value) {
         let newNode = new Node(value);
 
-        if(!this.length) {
+        if (!this.length) {
             this.top = newNode;
             this.bottom = newNode;
         } else {
             newNode.next = this.top;
             this.top = newNode;
         }
-        
+
         this.length++;
         return this;
     }
 
     pop() {
-
+        if (this.length < 1) return null;
+        if (this.length === 1) {
+            this.top = null;
+            this.bottom = null;
+        }
+        let removedNode = this.top;
+        this.top = this.top.next;
+        this.top.next = null;
+        this.length--;
+        return removedNode;
     }
 
     isEmpty() {
-
+        return this.length > 0 ? true : false;
     }
 }
 
