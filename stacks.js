@@ -11,7 +11,7 @@ class Stack {
     constructor() {
         this.top = null;
         this.bottom = null;
-        this.size = 0;
+        this.length = 0;
     }
 
     peek() {
@@ -19,7 +19,18 @@ class Stack {
     }
 
     push(value) {
+        let newNode = new Node(value);
 
+        if(!this.length) {
+            this.top = newNode;
+            this.bottom = newNode;
+        } else {
+            newNode.next = this.top;
+            this.top = newNode;
+        }
+        
+        this.length++;
+        return this;
     }
 
     pop() {
@@ -30,3 +41,9 @@ class Stack {
 
     }
 }
+
+let myStack = new Stack();
+myStack.push('Google');
+myStack.push('Udemy');
+myStack.push('Discord');
+console.log(myStack);
