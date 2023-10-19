@@ -12,5 +12,19 @@ class Queue {
         this.length = 0;
     }
 
-    
+    peek() {
+
+    }
+
+    enqueue(value) {
+
+    }
+
+    dequeue() {
+
+    }
+
+    isEmpty() {
+
+    }
 }
