@@ -43,20 +43,20 @@ class BinarySearchTree {
     }
 
     lookup(value) {
-        // check the root or if it exists
+        if(!this.root) return false;
+        if(this.root.value === value) return true;
 
-        // use a pointer to use to iterate
+        let current = this.root;
 
-        // use a while loop to traverse the tree
-            // check to see if current equals our lookup
-
-            // check to see if the target is less than
-                // if so move pointer left 
-                
-            // check to see if the target is greater than 
-                // if so move pointer right
-        
-        // return false if never found
+        while(current) {
+            if(current.value === value) return true;
+            if(value < current.value) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return false;
     }
 
     remove(value) {
