@@ -39,7 +39,6 @@ class BinarySearchTree {
                 current = current.right;
             }
         }
-        return this;
     }
 
     lookup(value) {
