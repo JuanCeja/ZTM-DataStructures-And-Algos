@@ -43,7 +43,20 @@ class BinarySearchTree {
     }
 
     lookup(value) {
+        // check the root or if it exists
 
+        // use a pointer to use to iterate
+
+        // use a while loop to traverse the tree
+            // check to see if current equals our lookup
+
+            // check to see if the target is less than
+                // if so move pointer left 
+                
+            // check to see if the target is greater than 
+                // if so move pointer right
+        
+        // return false if never found
     }
 
     remove(value) {
