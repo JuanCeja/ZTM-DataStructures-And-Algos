@@ -1,3 +1,5 @@
+// A Binary Search Tree (BST) is a tree-like data structure where each node has at most two children: a left child and a right child. Values in the tree are organized so that all values in the left subtree are less than or equal to the node's value, and all values in the right subtree are greater. This structure enables efficient searching, insertion, and deletion operations.
+
 class Node {
     constructor(value) {
         this.left = null;
@@ -50,11 +52,11 @@ class BinarySearchTree {
 }
 
 const tree = new BinarySearchTree();
-tree.insert(7);
 tree.insert(9);
-tree.insert(3);
+tree.insert(4);
+tree.insert(20);
+tree.insert(1);
 tree.insert(6);
-tree.insert(2);
-tree.insert(8);
-tree.insert(11);
+tree.insert(15);
+tree.insert(170);
 console.log(tree);
