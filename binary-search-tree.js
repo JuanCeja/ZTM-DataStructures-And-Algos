@@ -59,42 +59,46 @@ class BinarySearchTree {
     }
 
     remove(value) {
-        // we create our variables to iterate
+        if (!this.root) return false;
 
-        // we loop until we find our target
+        let currentNode = this.root;
+        let parentNode = null;
 
-            // if our target is found 
-
-                // we check if the current node has any children
-                    // if it does we connect its right child to the current nodes parent
-                    // if it only has a left child we connect the left child to the current nodes parent
-
-                // if no children exists we just remove the target node and return
-
-        // if our target is never found we just return
+        while (currentNode) {
+            if(value < currentNode.value) {
+                parentNode = currentNode;
+                currentNode = currentNode.left;
+            } else if (value > currentNode.value) {
+                parentNode = currentNode;
+                currentNode = currentNode.right;
+            } else if(value === currentNode.value){
+                
+            }
+        }
     }
+}
 
-    // Helper function for tree traversal
-    inOrderTraversal(node, depth, prefix, isLeft, callback) {
-        if (node === null) return;
+// Helper function for tree traversal
+inOrderTraversal(node, depth, prefix, isLeft, callback) {
+    if (node === null) return;
 
-        const marker = isLeft ? '├── ' : '└── ';
-        callback(`${depth ? '│   '.repeat(depth - 1) + marker : ''}${node.value}`);
+    const marker = isLeft ? '├── ' : '└── ';
+    callback(`${depth ? '│   '.repeat(depth - 1) + marker : ''}${node.value}`);
 
-        this.inOrderTraversal(node.left, depth + 1, prefix, true, callback);
-        this.inOrderTraversal(node.right, depth + 1, prefix, false, callback);
-    }
+    this.inOrderTraversal(node.left, depth + 1, prefix, true, callback);
+    this.inOrderTraversal(node.right, depth + 1, prefix, false, callback);
+}
 
-    // Display the BST nicely
-    display() {
-        const lines = [];
-        const printNode = (node) => lines.push(node);
+// Display the BST nicely
+display() {
+    const lines = [];
+    const printNode = (node) => lines.push(node);
 
-        this.inOrderTraversal(this.root, 0, '', false, printNode);
-        lines.forEach((line) => {
-            console.log(line);
-        });
-    }
+    this.inOrderTraversal(this.root, 0, '', false, printNode);
+    lines.forEach((line) => {
+        console.log(line);
+    });
+}
 }
 
 const tree = new BinarySearchTree();
