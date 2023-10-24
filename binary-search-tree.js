@@ -59,7 +59,19 @@ class BinarySearchTree {
     }
 
     remove(value) {
+        // we create our variables to iterate
 
+        // we loop until we find our target
+
+            // if our target is found 
+
+                // we check if the current node has any children
+                    // if it does we connect its right child to the current nodes parent
+                    // if it only has a left child we connect the left child to the current nodes parent
+
+                // if no children exists we just remove the target node and return
+
+        // if our target is never found we just return
     }
 
     // Helper function for tree traversal
@@ -94,5 +106,5 @@ tree.insert(6);
 tree.insert(15);
 tree.insert(170);
 console.log(tree.insert(20));
-console.log(tree.lookup(156));
+console.log(tree.lookup(170));
 tree.display();
