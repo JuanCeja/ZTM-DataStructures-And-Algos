@@ -18,3 +18,10 @@ const graph = [[0, 2], [2, 3], [2, 1], [1, 3]];
 // Adjacent List - In the adjacent list the index is the node and the values in the array at its index is the nodes it is connected to.  
 const graph1 = [[2], [2, 3], [0, 1, 3], [1, 2]];
 
+// Adjacent Matrix - in a adjacent matrix the array displays if the node has a connection to that node. For example, node 0 has no connection to 0, 1, or 3 but does have a connection to node 2 hence why it has a 1.
+const graph2 = {
+    0: [0, 0, 1, 0],
+    1: [0, 0, 1, 1],
+    2: [1, 1, 0, 1],
+    3: [0, 1, 1, 0]
+}
