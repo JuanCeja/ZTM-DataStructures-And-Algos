@@ -12,5 +12,9 @@
 //    /   \
 //   1 --- 3
 
-// Edge List
+// Edge List - an edge list can be an array that holds arrays itself. The child arrays simply state the connections. An edge list simply shows the connection. 
 const graph = [[0, 2], [2, 3], [2, 1], [1, 3]];
+
+// Adjacent List - In the adjacent list the index is the node and the values in the array at its index is the nodes it is connected to.  
+const graph1 = [[2], [2, 3], [0, 1, 3], [1, 2]];
+
