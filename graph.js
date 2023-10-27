@@ -39,7 +39,11 @@ class Graph {
     }
 
     addEdge(node1, node2) {
-        if ()
+        if (!this.adjacencyList[node1]) { this.adjacencyList[node1] = [node2] };
+        if (!this.adjacencyList[node2]) { this.adjacencyList[node2] = [node1] };
+        this.adjacencyList[node1].push(node2);
+        this.adjacencyList[node2].push(node1);
+        return this;
     }
 
     showConnections() {
