@@ -35,12 +35,15 @@ class Graph {
     addVertex(node) {
         if (!this.adjacencyList[node]) {
             this.adjacencyList[node] = [];
+            this.numberOfNodes++;
         };
+        return this;
     }
 
     addEdge(node1, node2) {
-        if (!this.adjacencyList[node1]) { this.adjacencyList[node1] = [node2] };
-        if (!this.adjacencyList[node2]) { this.adjacencyList[node2] = [node1] };
+        if(!this.adjacencyList[node1] || !this.adjacencyList[node2]) {
+            return null;
+        }
         this.adjacencyList[node1].push(node2);
         this.adjacencyList[node2].push(node1);
         return this;
