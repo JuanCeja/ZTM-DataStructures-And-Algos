@@ -33,11 +33,13 @@ class Graph {
     }
 
     addVertex(node) {
-
+        if (!this.adjacencyList[node]) {
+            this.adjacencyList[node] = [];
+        };
     }
 
     addEdge(node1, node2) {
-
+        if ()
     }
 
     showConnections() {
