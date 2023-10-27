@@ -25,3 +25,22 @@ const graph2 = {
     2: [1, 1, 0, 1],
     3: [0, 1, 1, 0]
 }
+
+class Graph {
+    constructor() {
+        this.numberOfNodes = 0;
+        this.adjacencyList = {};
+    }
+
+    addVertex(node) {
+
+    }
+
+    addEdge(node1, node2) {
+
+    }
+
+    showConnections() {
+        
+    }
+}
