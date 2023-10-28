@@ -12,22 +12,22 @@ function findFactorialIteratively(number) {
     }
     return sum;
 };
+// console.log(findFactorialRecursive(5));
+// console.log(findFactorialIteratively(5));
 
-console.log(findFactorialRecursive(5));
-console.log(findFactorialIteratively(5));
 
 // Given a number N return the index value of the Fibonacci sequence, where the sequence is:
-
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
 // the pattern of the sequence is that each value is the sum of the 2 previous values, that means that for N=5 -> 2 + 3
-
 function fibonacciIterative(n) {
 
-}
+};
 
 function fibonacciRecursively(n) {
+    if(n === 0) return 0;
+    if(n === 1) return 1;
+    return fibonacciRecursively(n - 1) + fibonacciRecursively(n - 2);
+};
 
-}
-
-console.log(fibonacciIterative(5));
-console.log(fibonacciRecursively(5));
+console.log(fibonacciIterative(7));
+console.log(fibonacciRecursively(7));
