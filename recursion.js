@@ -12,8 +12,8 @@ function findFactorialIteratively(number) {
     }
     return sum;
 };
-console.log(findFactorialRecursive(5));
-console.log(findFactorialIteratively(5));
+// console.log(findFactorialRecursive(5));
+// console.log(findFactorialIteratively(5));
 
 
 // Given a number N return the index value of the Fibonacci sequence, where the sequence is:
@@ -24,6 +24,13 @@ function fibonacciIterative(n) {
 };
 
 function fibonacciRecursively(n) {
+    if (n === 0) {
+        return 0;
+    } else if (n === 1) {
+        return 1;
+    }
+
+    return fibonacciRecursively(n - 2) + fibonacciRecursively(n - 1);
 };
 
 console.log(fibonacciIterative(7));
