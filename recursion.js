@@ -20,7 +20,20 @@ function findFactorialIteratively(number) {
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144 ...
 // the pattern of the sequence is that each value is the sum of the 2 previous values, that means that for N=5 -> 2 + 3
 function fibonacciIterative(n) {
-    
+    if (n <= 0) {
+        return 0;
+    } else if (n === 1) {
+        return 1;
+    } else {
+        fibPrev = 0;
+        fibCurr = 1;
+        for(let i = 2; i < n; i++) {
+            fibNext = fibPrev + fibCurr;
+            fibPrev = fibCurr;
+            fibCurr = fibNext;
+        }
+    }
+    return fibCurr;
 };
 
 function fibonacciRecursively(n) {
