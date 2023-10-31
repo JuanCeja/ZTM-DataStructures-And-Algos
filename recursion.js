@@ -46,3 +46,18 @@ console.log(fibonacciRecursively(7));
 function reverseString(str) {
 
 };
+
+function reverseString2(str) {
+    let charArray = str.split("");
+    let left = 0;
+    let right = charArray.length - 1;
+    while (left <= right) {
+        [charArray[left], charArray[right]] = [charArray[right], charArray[left]];
+        left++;
+        right--;
+    }
+    return charArray.join("");
+};
+
+console.log(reverseString("Juan Ceja Staff Software Engineer"));
+console.log(reverseString2("Juan Ceja Staff Software Engineer"));
