@@ -44,14 +44,17 @@ console.log(fibonacciRecursively(7));
 
 //Implement a function that reverses a string using iteration...and then recursion!
 function reverseString(str) {
-
+    if(str.length <= 1) {
+        return str;
+    }
+    return reverseString(str.substr(1)) + str.charAt(0);
 };
 
 function reverseString2(str) {
     let charArray = str.split("");
     let left = 0;
     let right = charArray.length - 1;
-    while (left <= right) {
+    while (left < right) {
         [charArray[left], charArray[right]] = [charArray[right], charArray[left]];
         left++;
         right--;
