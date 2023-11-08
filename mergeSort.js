@@ -25,5 +25,13 @@ const merge = (arr1, arr2) => {
     return mergedArr;
 };
 
-// console.log(mergeSort([17, 22, 21, 10, 399, 464, 6, 711, 8, 0, 16]));
-console.log(merge([17, 22, 25, 100, 399], [4, 6, 17, 71, 85, 110, 116]));
+const mergeSort = (arr) => {
+    if (arr.length <= 1) return arr;
+    let mid = Math.floor(arr.length / 2);
+    let left = mergeSort(arr.slice(0, mid));
+    let right = mergeSort(arr.slice(mid));
+    return merge(left, right);
+};
+
+console.log(mergeSort([17, 22, 21, 10, 399, 464, 6, 711, 8, 0, 16]));
+// console.log(merge([17, 22, 25, 100, 399], [4, 6, 17, 71, 85, 110, 116]));
