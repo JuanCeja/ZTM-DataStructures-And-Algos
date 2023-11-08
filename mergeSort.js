@@ -2,26 +2,27 @@
 
 //  ==== merge helper function ===
 const merge = (arr1, arr2) => {
-    let left = 0, right = 0;
-    let mergedArray = [];
-    while (left < arr1.length && right < arr2.length) {
-        if (arr1[left] < arr2[right]) {
-            mergedArray.push(arr1[left]);
-            left++;
+    let p1 = 0;
+    let p2 = 0;
+    let mergedArr = [];
+    while (p1 < arr1.length && p2 < arr2.length) {
+        if (arr1[p1] < arr2[p2]) {
+            mergedArr.push(arr1[p1]);
+            p1++;
         } else {
-            mergedArray.push(arr2[right]);
-            right++;
+            mergedArr.push(arr2[p2]);
+            p2++;
         }
-    }
-    while (left < arr1.length) {
-        mergedArray.push(arr1[left]);
-        left++;
-    }
-    while (right < arr2.length) {
-        mergedArray.push(arr2[right]);
-        right++;
-    }
-    return mergedArray;
+    };
+    while (p1 < arr1.length) {
+        mergedArr.push(arr1[p1]);
+        p1++;
+    };
+    while (p2 < arr2.length) {
+        mergedArr.push(arr2[p2]);
+        p2++;
+    };
+    return mergedArr;
 };
 
 const mergeSort = (arr) => {
@@ -33,3 +34,4 @@ const mergeSort = (arr) => {
 };
 
 console.log(mergeSort([17, 22, 21, 10, 399, 464, 6, 711, 8, 0, 16]));
+// console.log(merge([17, 22, 25, 100, 399], [4, 6, 17, 71, 85, 110, 116]));
