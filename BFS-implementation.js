@@ -39,7 +39,22 @@ class BinarySearchTree {
         };
     };
 
+    lookup(value) {
+        if (!this.root) return false;
+        if (this.root.value === value) return true;
 
+        let current = this.root;
+
+        while (current) {
+            if (current.value === value) return true;
+            if (value < current.value) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return false;
+    }
 
 
     // Helper function for tree traversal
@@ -73,5 +88,5 @@ tree.insert(1);
 tree.insert(6);
 tree.insert(15);
 tree.insert(170);
-// console.log(tree.lookup(170));
+console.log(tree.lookup(170));
 tree.display();
