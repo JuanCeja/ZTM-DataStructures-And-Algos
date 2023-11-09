@@ -57,23 +57,7 @@ class BinarySearchTree {
     };
 
     breadthFirstSearch() {
-        if (!this.root) return null;
-        let currentNode = this.root;
-        let returnList = [];
-        let queue = [];
-        queue.push(currentNode);
-
-        while (queue.length > 0) {
-            currentNode = queue.shift();
-            returnList.push(currentNode.value);
-            if (currentNode.left) {
-                queue.push(currentNode.left);
-            }
-            if (currentNode.right) {
-                queue.push(currentNode.right);
-            }
-        };
-        return returnList;
+        
     };
 
     // Helper function for tree traversal
