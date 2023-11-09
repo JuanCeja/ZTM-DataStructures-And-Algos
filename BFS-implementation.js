@@ -61,19 +61,28 @@ class BinarySearchTree {
         let list = [];
         let queue = [];
         let currentNode = this.root;
-
         queue.push(currentNode);
+
         while (queue.length > 0) {
             currentNode = queue.shift();
             list.push(currentNode.value);
-            if(currentNode.left){
+            if (currentNode.left) {
                 queue.push(currentNode.left);
             }
-            if(currentNode.right){
+            if (currentNode.right) {
                 queue.push(currentNode.right);
             }
         }
         return list;
+    };
+
+    breadthFirstSearchRecursive(queue, list) {
+        if (!queue.length) return list;
+        let currentNode = queue.shift();
+        list.push(currentNode.value);
+        if (currentNode.left) queue.push(currentNode.left);
+        if (currentNode.right) queue.push(currentNode.right);
+        return this.breadthFirstSearchRecursive(queue, list);
     };
 
     // Helper function for tree traversal
@@ -85,7 +94,7 @@ class BinarySearchTree {
 
         this.inOrderTraversal(node.left, depth + 1, prefix, true, callback);
         this.inOrderTraversal(node.right, depth + 1, prefix, false, callback);
-    }
+    };
 
     // Display the BST nicely
     display() {
@@ -96,7 +105,7 @@ class BinarySearchTree {
         lines.forEach((line) => {
             console.log(line);
         });
-    }
+    };
 };
 
 const tree = new BinarySearchTree();
@@ -109,3 +118,4 @@ tree.insert(15);
 tree.insert(170);
 tree.display();
 console.log(tree.breadthFirstSearch());
+console.log(tree.breadthFirstSearchRecursive([tree.root], []));
