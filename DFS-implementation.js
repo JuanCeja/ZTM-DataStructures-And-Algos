@@ -65,11 +65,11 @@ class BinarySearchTree {
     };
 
     depthFirstSearchPostOrder() {
-
+        return traversePostOrder(this.root, []);
     };
 
     depthFirstSearchPreOrder() {
-
+        return traversePreOrder(this.root, []);
     };
 
 
@@ -137,7 +137,6 @@ tree.insert(1);
 tree.insert(6);
 tree.insert(15);
 tree.insert(170);
-tree.display();
 console.log(tree.depthFirstSearchInOrder());
 console.log(tree.depthFirstSearchPreOrder());
 console.log(tree.depthFirstSearchPostOrder());
