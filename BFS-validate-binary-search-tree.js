@@ -94,7 +94,23 @@ class BinarySearchTree {
     };
 
     isValidBST() {
+        if (!this.root) return true;
+        let queue = [{ node: this.root, min: null, max: null }];
 
+        while (queue.length) {
+            const { node, min, max } = queue.shift();
+
+            if ((min != null && node.value <= min) || (max != null && node.value >= max)) {
+                return false;
+            };
+            if (node.left) {
+                queue.push({ node: node.left, min, max: node.value });
+            };
+            if (node.right) {
+                queue.push({ node: node.right, min: node.value, max });
+            };
+        };
+        return true;
     };
 
     // Helper function for tree traversal
