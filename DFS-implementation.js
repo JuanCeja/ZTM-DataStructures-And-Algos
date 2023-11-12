@@ -61,7 +61,7 @@ class BinarySearchTree {
     };
 
     depthFirstSearchInOrder() {
-        return traverse(this.root, []);
+        return traverseInOrder(this.root, []);
     };
 
     depthFirstSearchPostOrder() {
@@ -96,16 +96,29 @@ class BinarySearchTree {
     };
 };
 
-const traverse = (node, list) => {
+const traverseInOrder = (node, list) => {
     if (node.left) {
-        traverse(node.left, list);
+        traverseInOrder(node.left, list);
     }
     list.push(node.value);
     if (node.right) {
-        traverse(node.right, list);
+        traverseInOrder(node.right, list);
     }
     return list;
 };
+
+const traversePreOrder = (node, list) => {
+    list.push(node.value);
+    if (node.left) {
+        traversePreOrder(node.left, list);
+    }
+    if (node.right) {
+        traversePreOrder(node.right, list);
+    }
+    return list;
+};
+
+
 
 const tree = new BinarySearchTree();
 tree.insert(9);
@@ -117,3 +130,5 @@ tree.insert(15);
 tree.insert(170);
 tree.display();
 console.log(tree.depthFirstSearchInOrder());
+console.log(tree.depthFirstSearchPreOrder());
+console.log(tree.depthFirstSearchPostOrder());
