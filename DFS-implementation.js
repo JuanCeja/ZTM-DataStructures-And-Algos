@@ -118,7 +118,16 @@ const traversePreOrder = (node, list) => {
     return list;
 };
 
-
+const traversePostOrder = (node, list) => {
+    if (node.left) {
+        traversePostOrder(node.left, list);
+    }
+    if (node.right) {
+        traversePostOrder(node.right, list);
+    }
+    list.push(node.value);
+    return list;
+};
 
 const tree = new BinarySearchTree();
 tree.insert(9);
