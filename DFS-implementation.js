@@ -60,7 +60,18 @@ class BinarySearchTree {
         return false;
     };
 
-    
+    depthFirstSearchInOrder() {
+        
+    };
+
+    depthFirstSearchPostOrder() {
+
+    };
+
+    depthFirstSearchPreOrder() {
+
+    };
+
 
     // Helper function for tree traversal
     inOrderTraversal(node, depth, prefix, isLeft, callback) {
