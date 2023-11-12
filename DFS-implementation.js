@@ -1,4 +1,8 @@
-// Breadth-First Search (BFS) is a graph traversal algorithm used in computer science to explore and analyze the structure of a graph or tree. It starts at a specified node (or vertex) and systematically explores all its neighboring nodes at the current level before moving on to the next level. BFS operates in a breadth-first manner, meaning it explores nodes level by level, ensuring that all nodes at a given level are visited before moving deeper into the graph. This algorithm is often used for tasks like finding the shortest path in an unweighted graph and for discovering the connectivity of nodes in a graph. It can be implemented using a queue data structure to keep track of the nodes to be visited next.
+// Depth-First Search (DFS) is an algorithm used in computer science and graph theory to traverse or search through a data structure, typically a tree or a graph. It explores as far down a branch of the data structure as possible before backtracking.
+
+// In a DFS, the algorithm starts at a specific node (or vertex) and explores as deeply as possible along each branch, visiting all the children of a node before moving on to the next sibling node. This exploration continues recursively until there are no unvisited nodes left. Once it reaches a leaf node or a node with no unvisited neighbors, it backtracks to the previous node and explores any unvisited branches from that point. This process continues until all nodes in the data structure have been visited.
+
+// DFS is commonly used in various applications, such as graph traversal, finding connected components, solving puzzles like mazes, and determining paths between nodes in a graph. There are two primary variations of DFS: recursive DFS and iterative DFS, each with its own advantages and use cases.
 
 class Node {
     constructor(value) {
@@ -56,34 +60,18 @@ class BinarySearchTree {
         return false;
     };
 
-    breadthFirstSearch() {
-        if (!this.root) return null;
-        let queue = [];
-        let list = [];
-        let currentNode = this.root;
-        queue.push(currentNode);
-
-        while (queue.length > 0) {
-            currentNode = queue.shift();
-            list.push(currentNode.value);
-            if (currentNode.left) {
-                queue.push(currentNode.left);
-            };
-            if (currentNode.right) {
-                queue.push(currentNode.right);
-            };
-        };
-        return list;
+    depthFirstSearchInOrder() {
+        return traverseInOrder(this.root, []);
     };
 
-    breadthFirstSearchRecursive(queue, list) {
-        if (!queue.length) return list;
-        let currentNode = queue.shift();
-        list.push(currentNode.value);
-        if (currentNode.left) queue.push(currentNode.left);
-        if (currentNode.right) queue.push(currentNode.right);
-        return this.breadthFirstSearchRecursive(queue, list);
+    depthFirstSearchPostOrder() {
+        return traversePostOrder(this.root, []);
     };
+
+    depthFirstSearchPreOrder() {
+        return traversePreOrder(this.root, []);
+    };
+
 
     // Helper function for tree traversal
     inOrderTraversal(node, depth, prefix, isLeft, callback) {
@@ -108,6 +96,39 @@ class BinarySearchTree {
     };
 };
 
+const traverseInOrder = (node, list) => {
+    if (node.left) {
+        traverseInOrder(node.left, list);
+    }
+    list.push(node.value);
+    if (node.right) {
+        traverseInOrder(node.right, list);
+    }
+    return list;
+};
+
+const traversePreOrder = (node, list) => {
+    list.push(node.value);
+    if (node.left) {
+        traversePreOrder(node.left, list);
+    }
+    if (node.right) {
+        traversePreOrder(node.right, list);
+    }
+    return list;
+};
+
+const traversePostOrder = (node, list) => {
+    if (node.left) {
+        traversePostOrder(node.left, list);
+    }
+    if (node.right) {
+        traversePostOrder(node.right, list);
+    }
+    list.push(node.value);
+    return list;
+};
+
 const tree = new BinarySearchTree();
 tree.insert(9);
 tree.insert(4);
@@ -116,6 +137,6 @@ tree.insert(1);
 tree.insert(6);
 tree.insert(15);
 tree.insert(170);
-tree.display();
-console.log(tree.breadthFirstSearch());
-console.log(tree.breadthFirstSearchRecursive([tree.root], []));
+console.log(tree.depthFirstSearchInOrder());
+console.log(tree.depthFirstSearchPreOrder());
+console.log(tree.depthFirstSearchPostOrder());
