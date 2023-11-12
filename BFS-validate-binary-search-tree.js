@@ -1,4 +1,12 @@
-// Breadth-First Search (BFS) is a graph traversal algorithm used in computer science to explore and analyze the structure of a graph or tree. It starts at a specified node (or vertex) and systematically explores all its neighboring nodes at the current level before moving on to the next level. BFS operates in a breadth-first manner, meaning it explores nodes level by level, ensuring that all nodes at a given level are visited before moving deeper into the graph. This algorithm is often used for tasks like finding the shortest path in an unweighted graph and for discovering the connectivity of nodes in a graph. It can be implemented using a queue data structure to keep track of the nodes to be visited next.
+// Given the root of a binary tree, determine if it is a valid binary search tree (BST).
+
+// A valid BST is defined as follows:
+
+// The left 
+// subtree
+//  of a node contains only nodes with keys less than the node's key.
+// The right subtree of a node contains only nodes with keys greater than the node's key.
+// Both the left and right subtrees must also be binary search trees.
 
 class Node {
     constructor(value) {
@@ -85,6 +93,10 @@ class BinarySearchTree {
         return this.breadthFirstSearchRecursive(queue, list);
     };
 
+    isValidBST() {
+
+    };
+
     // Helper function for tree traversal
     inOrderTraversal(node, depth, prefix, isLeft, callback) {
         if (node === null) return;
@@ -117,5 +129,4 @@ tree.insert(6);
 tree.insert(15);
 tree.insert(170);
 tree.display();
-console.log(tree.breadthFirstSearch());
-console.log(tree.breadthFirstSearchRecursive([tree.root], []));
+console.log(tree.isValidBST());
