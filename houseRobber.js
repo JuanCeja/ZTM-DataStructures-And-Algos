@@ -16,13 +16,16 @@
 // Total amount you can rob = 2 + 9 + 1 = 12.
 
 const rob = (nums) => {
-    // create base case if nums is less than 2 return the single item
-    // create an array to store max loot
-    // store the our first nums element in the first index of our dp array
-    // in dp[2] store the max of the first 2 houses
-    // use a loop to iterate starting at 2
-        // create a new max for the next index in dp. choosing from our last dp element OR our last looted house plus the current loot
-    // return the last item in our dp array which should be our max loot
+    if (!nums.length) return 0;
+    if (nums.length < 2) return nums[0];
+    let dp = new Array(nums.length);
+    dp[0] = nums[0];
+    dp[1] = Math.max(nums[0], nums[1]);
+
+    for (let i = 2; i < nums.length; i++) {
+        dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+    }
+    return dp[nums.length - 1];
 };
 
 console.log(rob([1, 2, 3, 1])); // 4
