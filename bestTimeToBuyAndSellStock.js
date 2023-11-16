@@ -17,11 +17,32 @@
 
 const maxProfit = (nums) => {
     // create 2 variables. min and max
+    let minIndex;
+    let maxIndex;
+    let min = Infinity;
+    let max = 0;
+
     // iterate through the arr and grab the smallest value. store the index in min
+    for (let i = 1; i < nums.length; i++) {
+        if(nums[i] < min) {
+            min = nums[i];
+            minIndex = i;
+        }
+    };
+
     // if min is the last index return 0
+    if(minIndex === nums.length - 1) return 0;
+
     // iterate the arr 1 more time and find the max and save it in max
+    for(let i = minIndex + 1; i < nums.length; i++) {
+        if(nums[i] > max) {
+            max = nums[i];
+            maxIndex = i;
+        }
+    }
     // return max - min
+    return max - min;
 };
 
-console.log([7,1,5,3,6,4]); // 5
-console.log([7,6,4,3,1]); // 0
+console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 5
+console.log(maxProfit([7, 6, 4, 3, 1])); // 0
