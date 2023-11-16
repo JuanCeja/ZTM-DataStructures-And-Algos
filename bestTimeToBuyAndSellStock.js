@@ -16,7 +16,11 @@
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
 const maxProfit = (nums) => {
-    
+    // create 2 variables. min and max
+    // iterate through the arr and grab the smallest value. store the index in min
+    // if min is the last index return 0
+    // iterate the arr 1 more time and find the max and save it in max
+    // return max - min
 };
 
 console.log([7,1,5,3,6,4]); // 5
