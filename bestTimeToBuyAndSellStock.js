@@ -15,33 +15,18 @@
 // Output: 0
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
-const maxProfit = (nums) => {
-    // create 2 variables. min and max
-    let minIndex;
-    let maxIndex;
-    let min = Infinity;
-    let max = 0;
+const maxProfit = (prices) => {
+    // at the beginning the minimum price is the first price
 
-    // iterate through the arr and grab the smallest value. store the index in min
-    for (let i = 1; i < nums.length; i++) {
-        if(nums[i] < min) {
-            min = nums[i];
-            minIndex = i;
-        }
-    };
+    // at the beginning the minimum profit is 0
 
-    // if min is the last index return 0
-    if(minIndex === nums.length - 1) return 0;
+    // iterate the prices starting at 1
 
-    // iterate the arr 1 more time and find the max and save it in max
-    for(let i = minIndex + 1; i < nums.length; i++) {
-        if(nums[i] > max) {
-            max = nums[i];
-            maxIndex = i;
-        }
-    }
-    // return max - min
-    return max - min;
+        // if the current price is less update the buying price
+
+        // else check if we can get a better profit
+
+    // return our profit
 };
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 5
