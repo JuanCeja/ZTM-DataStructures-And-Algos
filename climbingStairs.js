@@ -20,9 +20,17 @@
 const climbStairs = (n) => {
     // we set a base case for 1
     // we create an array to store the amount of ways per steps
+    if (n === 1) return 1;
+    let dp = new Array(n + 1);
+    dp[1] = 1;
+    dp[2] = 2;
     // iterate until we reach the target
+    for (let i = 3; i <= 3; i++) {
         // the current iteration is the number of steps. the number of ways to make it to the target is the number of ways of its 2 previous targets
+        dp[i] = dp[i - 1] + dp[i - 2];
+    }
     // return the last number in the array which should be our target
+    return dp[n];
 };
 
 console.log(climbStairs(2)); // 2
