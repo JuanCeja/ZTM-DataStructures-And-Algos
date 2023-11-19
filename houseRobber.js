@@ -16,7 +16,10 @@
 // Total amount you can rob = 2 + 9 + 1 = 12.
 
 const rob = (nums) => {
-    
+    // start by creating an array to store the max loot as we go
+    // iterate the array of houses
+        // the current spot in the array will be updated to the max loot by checking if its greater than its previous or greater with adding its current value to the previously robbed house
+    // return the last item in the dp array which should be the max loot
 };
 
 console.log(rob([1, 2, 3, 1])); // 4
