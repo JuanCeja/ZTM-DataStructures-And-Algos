@@ -16,11 +16,16 @@
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
 const maxProfit = (prices) => {
-    // create our min buy price and max profit variables
-    // iterate the prices array starting at 1 index
-        // if price is smaller than current buy price update min buy price
-        // else check the difference to see if profit is higher then current max profit
-    // we return our current max profit
+    let buyPrice = prices[0];
+    let maxProfit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] < buyPrice) {
+            buyPrice = prices[i];
+        } else {
+            maxProfit = Math.max(prices[i] - buyPrice, maxProfit);
+        };
+    };
+    return maxProfit;
 };
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 5
